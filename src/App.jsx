@@ -1,12 +1,13 @@
 
 import './App.css'
+import Pages from './Pages/Pages'
 
 function App() {
   
 
   return (
     <>
-      <h2>shamiul islam</h2>
+      <Pages />
         
     </>
   )
