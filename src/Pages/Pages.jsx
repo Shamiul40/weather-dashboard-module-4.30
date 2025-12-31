@@ -4,13 +4,13 @@ import Weather from '../Components/Wether/Weather'
 
 export default function Pages() {
   return (
-    <>
+    <div className='max-w-7xl mx-auto py-2' >
      <Header /> 
      <main>
-        <section>
+        <section className='grid place-items-center h-screen'>
             <Weather />
         </section>
      </main>
-    </>
+    </div>
   )
 }
