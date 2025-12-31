@@ -1,24 +1,24 @@
-import { useState } from "react"
+import { useState } from "react";
 
-const useWeather =()=>{
-    const [weatherData, setWeatherData] = useState({
-        location : "",
-        climate : "",
-        temperature : "",
-        maxTemperature : "",
-        minTemperature : "",
-        humidity : "",
-        cloudPercentage : "",
-        wind : "",
-        time : "",
-        longitude : "",
-        latitude : "",
-    })
-    
-    const [loading, setLoading] = useState({
-        state : false,
-        message : "Loading....."
-    })
+const useWeather = () => {
+  const [weatherData, setWeatherData] = useState({
+    location: "",
+    climate: "",
+    temperature: "",
+    maxTemperature: "",
+    minTemperature: "",
+    humidity: "",
+    cloudPercentage: "",
+    wind: "",
+    time: "",
+    longitude: "",
+    latitude: "",
+  });
 
-    const [error, setError] = useState(null)
-}
+  const [loading, setLoading] = useState({
+    state: false,
+    message: "Loading.....",
+  });
+
+  const [error, setError] = useState(null);
+};
