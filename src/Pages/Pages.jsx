@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from '../Components/Header/Header'
-import Weather from '../Components/Wether/Weather'
+import Weather from '../Components/Wether/WeatherBoard'
 
 export default function Pages() {
   return (

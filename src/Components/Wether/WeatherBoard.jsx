@@ -4,9 +4,9 @@ import WeatherHeadline from './WeatherHeadline'
 import WeatherConditions from './WeatherConditions'
 import { WeatherContext } from '../../Context'
 
-export default function Weather() {
-	const {weatherData} =useContext(WeatherContext)
-	console.log(weatherData)
+export default function WeatherBoard() {
+	const {weatherData, loading} =useContext(WeatherContext)
+	
   return (
    <section className="">
 			<div className="container">
