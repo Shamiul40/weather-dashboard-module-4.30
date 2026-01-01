@@ -22,18 +22,18 @@ const useWeather = () => {
 
   const [error, setError] = useState(null);
 
-  const fetchWeatherData = async (longitude, latitude)=>{
+  const fetchWeatherData = async (longitude, latitude) => {
+    try {
+      const response = await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid={API key}`
+      );
+      if(!response.ok) {
+        const message = `"data does not found ${response.status}`
+        throw new Error(message)
+      }
 
-    try{
-        const response = await fetch(``)
-    }catch {
-
+    } catch {
+    } finally {
     }
-    finally{
-
-    }
-
-
-  }
-
+  };
 };
