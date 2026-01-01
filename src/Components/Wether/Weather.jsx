@@ -5,8 +5,8 @@ import WeatherConditions from './WeatherConditions'
 import { useWeather } from '../../hooks/useWeather'
 
 export default function Weather() {
-	const newData = useWeather()
-	console.log(newData)
+	const {weatherData, error, loading} = useWeather()
+	
   return (
    <section className="">
 			<div className="container">
