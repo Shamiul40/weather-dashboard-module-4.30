@@ -68,9 +68,15 @@ export const useWeather = () => {
   };
 
   useEffect(() => {
+     setLoading({
+            ...loading,
+            state: true,
+            message: "Finding location...",
+        });
+
     fetchWeatherData(90.4125, 23.8103);
-    console.log(weatherData)
-  }, []);
+    
+  },[]);
 
   return { weatherData, error, loading };
 };

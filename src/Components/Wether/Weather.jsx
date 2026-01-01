@@ -1,12 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import AddToFavourite from './AddToFavourite'
 import WeatherHeadline from './WeatherHeadline'
 import WeatherConditions from './WeatherConditions'
-import { useWeather } from '../../hooks/useWeather'
+import { WeatherContext } from '../../Context'
 
 export default function Weather() {
-	const {weatherData, error, loading} = useWeather()
-	
+	const {weatherData} =useContext(WeatherContext)
+	console.log(weatherData)
   return (
    <section className="">
 			<div className="container">
