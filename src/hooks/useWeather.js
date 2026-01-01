@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const useWeather = () => {
+export const useWeather = () => {
   const [weatherData, setWeatherData] = useState({
     location: "",
     climate: "",
@@ -32,13 +32,13 @@ const useWeather = () => {
       })
 
       const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid={API key}`
+        `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${import.meta.env.VITE_WEATHER_API_KEY}&units=metric`
       );
       if(!response.ok) {
         const message = `"data does not found propersrly"${response.status}`
         throw new Error(message)
       }
-      const data = response.json();
+      const data = await response.json();
       setWeatherData(data)
       
 
@@ -54,6 +54,12 @@ const useWeather = () => {
 
     }
 
-    return weatherData
   };
+ 
+
+  useEffect(()=>{
+    fetchWeatherData(90.4125, 23.8103)
+  },[])
+
+   return weatherData
 };
