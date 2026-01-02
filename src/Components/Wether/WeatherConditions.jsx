@@ -1,11 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
 import tempMax from "../../assets/icons/temp-max.svg"
 import tempMin from "../../assets/icons/temp-min.svg"
 import humidity from "../../assets/icons/humidity.svg"
 import cloud from "../../assets/icons/cloud.svg"
 import wind from "../../assets/icons/wind.svg"
+import { WeatherContext } from "../../Context";
 
 export default function WeatherConditions() {
+
+  const {weatherData} = useContext(WeatherContext);
+
+  const {
+  
+    
+    
+    maxTemperature,
+    minTemperature,
+    humidity,
+    cloudPercentage,
+    wind,
+    climate,
+    
+  } = weatherData
+
   return (
     <div>
       <p class="text-sm lg:text-lg font-bold uppercase mb-8">
