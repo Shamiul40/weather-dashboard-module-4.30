@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
-import pinIcon from "../../assets/pin.svg"
+import pinIcon from "../../assets/pin.svg";
 import { WeatherContext } from "../../Context";
+import { getDateTime } from "../../utils/date";
 
 export default function WeatherHeadline() {
-
-  const {weatherData} = useContext(WeatherContext)
-  const {location, climate, temperature, time} = weatherData
+  const { weatherData } = useContext(WeatherContext);
+  const { location, climate, temperature, time } = weatherData;
   return (
     <div>
       <div class="max-md:flex items-center justify-between md:-mt-10">
@@ -20,7 +20,7 @@ export default function WeatherHeadline() {
           </div>
         </div>
       </div>
-      <p class="text-sm lg:text-lg">06:09 - Sunday, 9 Dec ‘23</p>
+      <p class="text-sm lg:text-lg">{getDateTime(time, "time", false)} - {getDateTime(time, "date", false)}</p>
     </div>
   );
 }
