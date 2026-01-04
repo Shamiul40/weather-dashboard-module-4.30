@@ -13,7 +13,16 @@ export default function AddToFavourite() {
   const{latitude, longitude, location} = weatherData
   
   const handleFavourite=()=>{
-    setIsFavourite(!isFavourite)
+    const found = favourites.find(fav=> fav.location === location)
+    
+    if(!found) {
+      addFavourites(latitude,longitude, location)
+    } else {
+      removeFavourites(location)
+    }
+
+    setIsFavourite(!isFavourite);
+
   }
   
   return (
