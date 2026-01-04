@@ -14,13 +14,13 @@ export const FavouritesProvider =({children})=>{
         ])
     }
 
-    const removeFavourite =(location)=>{
+    const removeFavourites =(location)=>{
         const restFavourites = favourites.filter(fav=>fav.location !==location)
         setFavourites(restFavourites)
     }
 
     return (
-        <FavouritesContext.Provider>
+        <FavouritesContext.Provider value={favourites, addFavourites, removeFavourites}>
             {children}
         </FavouritesContext.Provider>    
     )
