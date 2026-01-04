@@ -36,7 +36,7 @@ export const useWeather = () => {
         }&units=metric`
       );
       if (!response.ok) {
-        const message = `"data does not found propersrly"${response.status}`;
+        const message = `"data does not  found propersrly"${response.status}`;
         throw new Error(message);
       }
       const data = await response.json();
@@ -68,15 +68,14 @@ export const useWeather = () => {
   };
 
   useEffect(() => {
-     setLoading({
-            ...loading,
-            state: true,
-            message: "Finding location...",
-        });
+    setLoading({
+      ...loading,
+      state: true,
+      message: "Finding location...",
+    });
 
     fetchWeatherData(90.4125, 23.8103);
-    
-  },[]);
+  }, []);
 
   return { weatherData, error, loading };
 };
