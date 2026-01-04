@@ -5,14 +5,22 @@ import { FavouritesContext, WeatherContext } from "../../Context";
 
 export default function AddToFavourite() {
   const [isFavourite, setIsFavourite] = useState(false)
+ 
   const {favourites, addFavourites, removeFavourites} =useContext(FavouritesContext);
+  
   const {weatherData} = useContext(WeatherContext);
+  
   const{latitude, longitude, location} = weatherData
+  
+  const handleFavourite=()=>{
+    setIsFavourite(!isFavourite)
+  }
+  
   return (
     <div class="flex items-center justify-end space-x-6">
-      <button class="text-sm md:text-base inline-flex items-center space-x-2 px-3 py-1.5 rounded-md bg-[#C5C5C54D]">
+      <button class="text-sm md:text-base inline-flex items-center space-x-2 px-3 py-1.5 rounded-md bg-[#C5C5C54D]" onClick={handleFavourite}>
         <span>Add to Favourite</span>
-        <img src={heart} alt="" />
+        <img src={isFavourite ?redHeart :heart} alt="" />
       </button>
     </div>
   );
