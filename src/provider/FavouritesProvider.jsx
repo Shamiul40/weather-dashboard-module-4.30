@@ -20,7 +20,7 @@ export const FavouritesProvider =({children})=>{
     }
 
     return (
-        <FavouritesContext.Provider value={favourites, addFavourites, removeFavourites}>
+        <FavouritesContext.Provider value={{favourites, addFavourites, removeFavourites}}>
             {children}
         </FavouritesContext.Provider>    
     )
