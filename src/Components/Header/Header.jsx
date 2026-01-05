@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 
 
@@ -8,6 +8,8 @@ import Favourites from './Favourites'
 import Modal from './Modal'
 
 export default function Header() {
+	const [showFavModal, setShowFavModal]= useState(false)
+
   return (
     <header className="fixed w-full top-0 z-50 bg-linear-to-b from-black/60 to-black/0 pb-4">
 		<nav className="container flex items-center justify-between py-6">
@@ -15,10 +17,8 @@ export default function Header() {
 
 			<div className="flex items-center gap-4 relative">
 				<Search />
-				<Favourites />
-
-				{/* <!-- Modal --> */}
-				<Modal />
+				<Favourites onShow={()=>setShowFavModal(!showFavModal)} />
+				{showFavModal && <Modal />}
 
 			</div>
 		</nav>
