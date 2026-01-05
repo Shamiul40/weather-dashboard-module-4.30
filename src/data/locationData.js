@@ -31,12 +31,12 @@ const data = [
     },
 ];
 
-const getLocation =()=>{
+export const getLocation =()=>{
     return data
 }
 
 
-const getLocationByName=(location)=>{
+export const getLocationByName=(location)=>{
 
     if(location) {
         return null
@@ -50,8 +50,9 @@ const getLocationByName=(location)=>{
         const defaultValu ={
             location : "",
             latitude : 0,
-            
+            longitude : 0,
         }
+        return defaultValu
     }
 
 }
