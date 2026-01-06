@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import { useEffect, useState } from "react";
+import { locationContext } from "../Context";
 
 export const useWeather = () => {
   const [weatherData, setWeatherData] = useState({
@@ -21,7 +23,8 @@ export const useWeather = () => {
   });
 
   const [error, setError] = useState(null);
-
+  const {selectedLocation} = useContext(locationContext)
+  console.log(selectedLocation)
   const fetchWeatherData = async (longitude, latitude) => {
     try {
       setLoading({
