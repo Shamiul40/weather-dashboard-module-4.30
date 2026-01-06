@@ -11,7 +11,7 @@ export default function LocationProvider({children}) {
     )
 
   return (
-    <locationContext.Provider>
+    <locationContext.Provider value={{selectedLocation, setSelectedLocation}}>
         {children}
     </locationContext.Provider>
   )
