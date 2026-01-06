@@ -38,7 +38,7 @@ export const getLocation =()=>{
 
 export const getLocationByName=(location)=>{
 
-    if(location) {
+    if(!location) {
         return null
     }
 
