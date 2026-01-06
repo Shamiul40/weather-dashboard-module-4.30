@@ -12,8 +12,8 @@ export default function Search() {
   const handleSubmit=(e)=>{
     e.preventDefault();
     const fetchedLocation = getLocationByName(searchTerm)
-    setSelectedLocation(...fetchedLocation)
     console.log(fetchedLocation)
+    setSelectedLocation({...fetchedLocation})
     
   }
 
