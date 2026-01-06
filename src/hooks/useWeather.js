@@ -33,13 +33,20 @@ export const useWeather = () => {
         message: "data fetching......",
       });
 
+      // const response = await fetch(
+      //   `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${
+      //     import.meta.env.VITE_WEATHER_API_KEY
+      //   }&units=metric`
+      // );
+
       const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${
-          import.meta.env.VITE_WEATHER_API_KEY
-        }&units=metric`
-      );
+                `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${
+                    import.meta.env.VITE_WEATHER_API_KEY
+                }&units=metric`
+            );
+
       if (!response.ok) {
-        const message = `"data does not found propersrly"${response.status}`;
+        const message = `"data does not found properly"${response.status}`;
         throw new Error(message);
       }
       const data = await response.json();
@@ -71,20 +78,26 @@ export const useWeather = () => {
   };
 
   useEffect(() => {
-    setLoading({
-      ...loading,
-      state: true,
-      message: "Finding location...",
-    });
+        setLoading({
+            ...loading,
+            state: true,
+            message: "Finding location...",
+        });
 
-    if (selectedLocation.latitude && selectedLocation.longitude) {
-      fetchWeatherData(selectedLocation.latitude, selectedLocation.longitude);
-    } else {
-      navigator.geolocation.getCurrentPosition(function (position) {
-        fetchWeatherData(position.coords.latitude, position.coords.longitude);
-      });
-    }
-  }, []);
+        if (selectedLocation.latitude && selectedLocation.longitude) {
+            fetchWeatherData(
+                selectedLocation.latitude,
+                selectedLocation.longitude
+            );
+        } else {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                fetchWeatherData(
+                    position.coords.latitude,
+                    position.coords.longitude
+                );
+            });
+        }
+    }, [selectedLocation.latitude, selectedLocation.longitude]);
 
   return { weatherData, error, loading };
 };
