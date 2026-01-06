@@ -6,13 +6,13 @@ import WeatherProvider from "./provider/WeatherProvider";
 
 function App() {
   return (
-    <WeatherProvider>
-      <FavouritesProvider>
-        <LocationProvider>
+    <LocationProvider>
+      <WeatherProvider>
+        <FavouritesProvider>
           <Pages />
-        </LocationProvider>
-      </FavouritesProvider>
-    </WeatherProvider>
+        </FavouritesProvider>
+      </WeatherProvider>
+    </LocationProvider>
   );
 }
 
