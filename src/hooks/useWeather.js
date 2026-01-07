@@ -33,17 +33,13 @@ export const useWeather = () => {
         message: "data fetching......",
       });
 
-      // const response = await fetch(
-      //   `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${
-      //     import.meta.env.VITE_WEATHER_API_KEY
-      //   }&units=metric`
-      // );
-
       const response = await fetch(
-                `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${
-                    import.meta.env.VITE_WEATHER_API_KEY
-                }&units=metric`
-            );
+        `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${
+          import.meta.env.VITE_WEATHER_API_KEY
+        }&units=metric`
+      );
+
+      
 
       if (!response.ok) {
         const message = `"data does not found properly"${response.status}`;
